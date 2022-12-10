@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+body {
+    padding: 5vh 16px;
+    font-family: 'Russo One', sans-serif;
+    --bg: rgb(23, 23, 23);
+    --color: rgb(234, 230, 230);
+    --contrastColor: rgb(199, 1, 1);
+    --bgHover: rgb(158, 157, 157);
+    color: var(--color);
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    user-select: none;
+    overflow: hidden;
+    text-align: center;
+    font-size: 10px;
+}
+.box-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.box-bg__item {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(2px 2px at 10px 20px, #eee, rgba(0, 0, 0, 0)),radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),radial-gradient(2px 2px at 90px 40px, #ddd, rgba(0, 0, 0, 0));
+    background-size: 200px 200px;
+    animation: bg 15s linear infinite;
+    opacity: 0;
+}
+.box-bg__item:nth-child(1) {
+    animation-delay: 0s;
+    background-position: 50% -40%;
+}
+.box-bg__item:nth-child(2) {
+    animation-delay: 2s;
+    background-position: 20% 60%;
+}
+.box-bg__item:nth-child(3) {
+    animation-delay: 4s;
+    background-position: 40% -80%;
+}
+.box-bg__item:nth-child(4) {
+    animation-delay: 6s;
+    background-position: -20% -30%;
+}
+.box-bg__item:nth-child(5) {
+    animation-delay: 8s;
+    background-position: 80% 30%;
+}
+@keyframes bg {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(5%);
+        
+    }
+    85% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(100%);
+        
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(120%);
+    }
+}
+h1 {
+    font-size: 5em;
+}
+p {
+    font-size: 3em;
+    line-height: 150%;
+}
+span {
+    color: var(--contrastColor);
+}
+.container {
+    display: grid;
+    width: 90vw;
+    height: 90vw;
+    max-width: 600px;
+    max-height: 600px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid var(--color);
+}
+.cell {
+    border: 2px solid var(--color);
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8em;
+    background-color: var(--bg);
+}
+.cell:hover {
+    background-color: var(--bgHover);
+}
+.error {
+    background-color: var(--contrastColor);
+}
+.error:hover {
+    background-color: var(--contrastColor);
+}
